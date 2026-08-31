@@ -55,6 +55,6 @@ To graphically inspect and verify the routing paths, you can use the official we
 
 Online Router Visualizer: https://spark-public.s3.amazonaws.com/vlsicad/javascript_tools/router.html
 
-![alt text](image-1.png)
+<img width="1273" height="713" alt="image-1" src="https://github.com/user-attachments/assets/f7853ab9-0b65-4518-a0af-4a7a4f87cbc3" />
 
 Usage: Drag and drop your .grid benchmark file and the corresponding .rout result file into the respective browser drop zones to render the multi-layer routing layout.
