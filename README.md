@@ -43,7 +43,7 @@ You can execute and test individual benchmarks using the general make rule:
 make 
 run TEST=bench1
 ```
-This automatically reads data from data/bench1.grid and data/bench1.nl, and outputs _Dijkstra.rout and _A_star.rout results into the build/ directory.
+This automatically reads data from `data/bench1.grid` and `data/bench1.nl`, and outputs `_Dijkstra.rout` and `_A_star.rout` results into the `build/` directory.
 ### 3. Clean Build Artifacts
 To clear compiled binaries and previous outputs:
 
