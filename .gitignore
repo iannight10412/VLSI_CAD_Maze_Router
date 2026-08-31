@@ -1,0 +1,11 @@
+build/
+*.exe
+*.router
+*.rout
+
+data/
+
+.DS_Store
+Thumbs.db
+
+.vscode/
