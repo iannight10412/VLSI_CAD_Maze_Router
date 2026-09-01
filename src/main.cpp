@@ -52,9 +52,6 @@ int main(int argc, char* argv[]) {
     std::cout << "========================================\n";
     std::cout << "Dijkstra Time : " << duration_Dijkstra.count() << " ms\n";
     std::cout << "A* Time       : " << duration_A_star.count() << " ms\n";
-    if (duration_A_star.count() < duration_Dijkstra.count()) {
-        std::cout << "Result        : A* is " << duration_Dijkstra.count() / duration_A_star.count() << "x faster!\n";
-    }
     std::cout << "========================================\n";
 
     fout_Dijkstra.close();

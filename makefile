@@ -10,11 +10,11 @@ $(TARGET): $(SRCS) | build_dir
 	$(CXX) $(CXXFLAGS) $(SRCS) -o $(TARGET)
 
 build_dir:
-	if not exist build mkdir build
+	@if not exist build mkdir build
 
 run: $(TARGET)
 	@echo "Running test: $(TEST)..."
 	./$(TARGET) data/$(TEST).grid data/$(TEST).nl build/$(TEST)
 
 clean:
-	if exist build rmdir /s /q build
+	@if exist build rmdir /s /q build

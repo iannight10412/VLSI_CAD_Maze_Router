@@ -50,6 +50,52 @@ To clear compiled binaries and previous outputs:
 ```Bash
 make clean
 ```
+
+## Benchmark Results Example
+```text
+--- Running Dijkstra ---
+Net 1 routed with cost: 8
+... (Net 2 to Net N-1) ...
+Net N routed with cost: 28
+
+--- Running A* ---
+Net 1 routed with cost: 8
+... (Net 2 to Net N-1) ...
+Net N routed with cost: 28
+
+========================================
+          Performance Report            
+========================================
+Dijkstra Time : 7.1382 ms
+A* Time       : 8.0434 ms
+========================================
+```
+
+## Output File Format (`.rout`)
+
+The routing results must be saved into a plain-text output file. The file format strictly follows this sequential structure:
+
+* **Total Number of Nets:** The very first line of the file must be an integer representing the total number of nets to be routed.
+* **Net ID:** When starting the output for a specific net, the first line must print its Net ID.
+* **Grid Coordinates:** If the routing is successful, the path is printed line-by-line. The format for each step is `Layer X Y`. Internal layer representations are converted back to layer 1 and layer 2 for the final output. 
+* **Via Insertion:** If a path crosses between layers, an extra via marker must be printed between the coordinates of the two layers. This via marker uses `3` as the designated layer code.
+* **Failed Routing:** If the algorithm cannot find a path for a net, it will not print any coordinates. It will simply print the Net ID followed directly by the end marker.
+* **End Marker:** A single `0` must be printed on a new line at the very end of each net's path to indicate its completion.
+
+#### Example File Structure
+
+```text
+20          // Total number of nets (e.g., 20 nets)
+1           // Start of Net 1
+1 3 36      // Coordinate: Layer 1, X=3, Y=36
+1 3 35      // Coordinate: Layer 1, X=3, Y=35
+3 3 35      // Via marker (Layer code 3) indicating a jump between layers
+2 3 35      // Coordinate: Layer 2, X=3, Y=35
+0           // End marker for Net 1
+2           // Start of Net 2
+0           // End marker for Net 2 (Indicates routing failure)
+```
+
 ## Visualization Tool
 To graphically inspect and verify the routing paths, you can use the official web-based visualization tool (Note: This online visualizer is an external public utility, not owned or hosted by this project):
 
